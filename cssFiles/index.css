@@ -1,0 +1,549 @@
+/* =========================================================
+   FieldTest — index.css
+   Design tokens sampled directly from Figma node 23:7 ("login page").
+   ========================================================= */
+
+:root {
+  /* Brand greens (Figma uses three close but distinct greens) */
+  --color-brand-green: #038941;        /* "Back" heading accent */
+  --color-brand-green-dark: #038d43;   /* Primary button fill */
+  --color-brand-green-accent: #099c4c; /* Trust badge text + logo mark fill */
+
+  /* Neutrals */
+  --color-text-primary: #000000;
+  --color-text-secondary: #4b4b4b;
+  --color-text-muted: #88919d;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f6fa;
+
+  --color-status-danger: #d93b3b;
+
+  /* Radii */
+  --radius-pill: 29px;
+  --radius-tab: 22px;
+  --radius-field: 15px;
+  --radius-button: 15px;
+
+  /* Type */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Reference design width from Figma */
+  --design-frame-width: 440px;
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Mobile-first app shell: hide the app on wide (desktop) screens and show
+   a "coming soon" notice instead, per the product spec. */
+#app {
+  display: none;
+}
+
+#desktop-notice {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  #app {
+    display: block;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 481px) {
+  #desktop-notice {
+    display: flex;
+  }
+}
+
+/* ---------- Screen wrapper ---------- */
+.screen {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.screen__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--design-frame-width);
+  margin: 0 auto;
+  padding: 44px 31px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Brand / Logo ---------- */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 60px;
+}
+
+.brand__mark {
+  position: relative;
+  width: 30px;
+  height: 37px;
+}
+
+.brand__mark__outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brand__mark__badge {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  width: 20px;
+  height: 17px;
+  background: var(--color-brand-green-accent);
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.brand__mark__icon {
+  position: absolute;
+  left: 3px;
+  top: 7px;
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+  object-fit: contain;
+}
+
+.brand__wordmark {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.brand__wordmark span {
+  color: var(--color-brand-green);
+}
+
+.brand__tagline {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ---------- Heading block (centered) ---------- */
+.login-heading,
+.login-subheading {
+  text-align: center;
+}
+
+.login-heading {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.login-heading span {
+  color: var(--color-brand-green);
+}
+
+.login-subheading {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 28px;
+}
+
+/* ---------- Segmented Tabs ---------- */
+.tabs {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-pill);
+  padding: 7px;
+  height: 58px;
+  margin-bottom: 27px;
+}
+
+.tabs__tab {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-tab);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tabs__tab[disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tabs__tab.is-active {
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Form ---------- */
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-alert {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: #fdecec;
+  border: 1px solid #f5c2c2;
+  color: var(--color-status-danger);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: var(--radius-field);
+  margin-bottom: 18px;
+}
+
+.form-alert.is-visible {
+  display: flex;
+}
+
+.form-alert.form-alert--success {
+  background: #e8f7ee;
+  border-color: #b9e6c9;
+  color: var(--color-brand-green-dark);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field + .field {
+  margin-top: 27px;
+}
+
+.field__label {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.field__helper {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.field__control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 45px;
+  padding: 0 14px;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-field);
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.field__control:focus-within {
+  border-color: var(--color-brand-green-dark);
+}
+
+.field__control.has-error {
+  border-color: var(--color-status-danger);
+}
+
+.field__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.field__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.field__input {
+  font-size: 12px;
+  color: var(--color-text-primary);
+}
+
+.field__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.field__error {
+  font-size: 12px;
+  color: var(--color-status-danger);
+  margin-top: 2px;
+  display: none;
+}
+
+.field__control.has-error + .field__error {
+  display: block;
+}
+
+/* PIN dot display — 6 digits, sits inside the PIN field over a hidden real input */
+.pin-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  height: 100%;
+  cursor: text;
+}
+
+.pin-display__digit {
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 8px;
+  color: var(--color-text-primary);
+}
+
+.pin-display__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  opacity: 0.35;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.pin-display__dot.is-filled {
+  opacity: 1;
+  background: var(--color-text-primary);
+}
+
+.field__toggle {
+  width: 20px;
+  height: 18px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+.field__toggle img,
+.field__toggle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.field__toggle .icon-visible {
+  display: none;
+}
+
+.field__toggle.is-visible .icon-hidden {
+  display: none;
+}
+
+.field__toggle.is-visible .icon-visible {
+  display: block;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 53px;
+  background: var(--color-brand-green-dark);
+  color: var(--color-surface);
+  border-radius: var(--radius-button);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 51px;
+  transition: opacity 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-primary[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary__icon {
+  width: 13px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-primary__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: var(--color-surface);
+  border-radius: 50%;
+  display: none;
+  animation: ft-spin 0.7s linear infinite;
+}
+
+.btn-primary.is-loading .btn-primary__label,
+.btn-primary.is-loading .btn-primary__icon {
+  display: none;
+}
+
+.btn-primary.is-loading .btn-primary__spinner {
+  display: block;
+}
+
+@keyframes ft-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Trust badge / footnote ---------- */
+.trust-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-brand-green-accent);
+  margin-top: 22px;
+}
+
+.trust-badge__icon {
+  width: 11px;
+  height: 14px;
+}
+
+.trust-badge__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.footnote {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-top: 9px;
+}
+
+/* ---------- Decorative background circles ---------- */
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.decor img {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.decor__outer {
+  left: -109px;
+  bottom: -116px;
+  width: 223px;
+  height: 223px;
+}
+
+.decor__inner {
+  left: -60px;
+  bottom: -67px;
+  width: 125px;
+  height: 125px;
+}
+
+/* ---------- Desktop "coming soon" notice ---------- */
+#desktop-notice {
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  gap: 18px;
+}
+
+#desktop-notice .brand__mark {
+  width: 44px;
+  height: 54px;
+}
+
+#desktop-notice h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+#desktop-notice p {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 360px;
+  margin: 0;
+}

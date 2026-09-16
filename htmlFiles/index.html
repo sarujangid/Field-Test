@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>FieldTest — Digital Field Testing Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/cssFiles/index.css" />
+</head>
+<body>
+
+  <!-- ============ DESKTOP / LARGE VIEWPORT NOTICE ============ -->
+  <div id="desktop-notice">
+    <div class="brand__mark">
+      <img class="brand__mark__outline" src="https://www.figma.com/api/mcp/asset/1318688f-535c-40eb-9816-f987676bf1f5.svg" alt="" />
+      <div class="brand__mark__badge"></div>
+      <img class="brand__mark__icon" src="https://www.figma.com/api/mcp/asset/09ad7beb-80d3-4050-bf12-21addb6dadf1.png" alt="" />
+    </div>
+    <h1>FieldTest is currently available for mobile devices.</h1>
+    <p>The desktop version is coming soon. Please open FieldTest on a mobile device for the best experience.</p>
+  </div>
+
+  <!-- ============ MOBILE APP ============ -->
+  <div id="app">
+    <section id="screen-login" class="screen">
+
+      <div class="decor" aria-hidden="true">
+        <img class="decor__outer" src="https://www.figma.com/api/mcp/asset/1cb0e06a-3fd1-4cf0-b0af-0e26621ddb20.svg" alt="" />
+        <img class="decor__inner" src="https://www.figma.com/api/mcp/asset/ce020e61-ca0d-4ed3-a59a-ef57b4f86993.svg" alt="" />
+      </div>
+
+      <div class="screen__content">
+
+        <div class="brand">
+          <div class="brand__mark">
+            <img class="brand__mark__outline" src="https://www.figma.com/api/mcp/asset/1318688f-535c-40eb-9816-f987676bf1f5.svg" alt="" />
+            <div class="brand__mark__badge"></div>
+            <img class="brand__mark__icon" src="https://www.figma.com/api/mcp/asset/09ad7beb-80d3-4050-bf12-21addb6dadf1.png" alt="" />
+          </div>
+          <p class="brand__wordmark">Field <span>Test</span></p>
+          <p class="brand__tagline">Digital Field Testing Companion</p>
+        </div>
+
+        <h1 class="login-heading">Welcome <span>Back</span></h1>
+        <p class="login-subheading">Sign to access your tests and records</p>
+
+        <div class="tabs" role="tablist" aria-label="Login mode">
+          <button type="button" class="tabs__tab is-active" role="tab" aria-selected="true">Operator Login</button>
+          <button type="button" class="tabs__tab" role="tab" aria-selected="false" disabled title="Not available in this prototype">Create Accout</button>
+        </div>
+
+        <div class="form-alert" id="login-alert" role="alert">
+          <span data-alert-text></span>
+        </div>
+
+        <form id="login-form" novalidate>
+
+          <div class="field">
+            <label class="field__label" for="operator-id-input">Operator ID</label>
+            <span class="field__helper">Enter your operator ID</span>
+            <div class="field__control" id="operator-id-control">
+              <span class="field__icon">
+                <img src="https://www.figma.com/api/mcp/asset/7cc71a14-38e6-4dae-a52f-f3a7a14c8214.svg" alt="" />
+              </span>
+              <input class="field__input" type="text" id="operator-id-input" name="operatorId"
+                     placeholder="OP-1001" autocomplete="username" />
+            </div>
+            <span class="field__error" id="operator-id-error"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="pin-hidden-input">PIN/Password</label>
+            <span class="field__helper">Enter your 6-digit PIN</span>
+            <div class="field__control" id="pin-control">
+              <span class="field__icon">
+                <img src="https://www.figma.com/api/mcp/asset/66a21e87-87c4-43e1-82e2-21a2ad02da7a.svg" alt="" />
+              </span>
+
+              <div class="pin-display" id="pin-display"></div>
+
+              <!-- Real input capturing keystrokes; visually hidden, drives pin-display above -->
+              <input id="pin-hidden-input" type="tel" inputmode="numeric" maxlength="6"
+                     autocomplete="current-password"
+                     style="position:absolute; opacity:0; width:1px; height:1px; pointer-events:none;" />
+
+              <button type="button" class="field__toggle" id="pin-toggle" aria-label="Show PIN" aria-pressed="false">
+                <img class="icon-hidden" src="https://www.figma.com/api/mcp/asset/123f4ada-27d7-4c2b-bdd7-d2206916f4d7.svg" alt="" />
+                <svg class="icon-visible" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 9C1 9 4.5 2.5 10 2.5C15.5 2.5 19 9 19 9C19 9 15.5 15.5 10 15.5C4.5 15.5 1 9 1 9Z"
+                        stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="10" cy="9" r="3" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+              </button>
+            </div>
+            <span class="field__error" id="pin-error"></span>
+          </div>
+
+          <button type="submit" class="btn-primary" id="login-submit">
+            <span class="btn-primary__label">Sign in</span>
+            <span class="btn-primary__icon">
+              <img src="https://www.figma.com/api/mcp/asset/ac616753-2283-4f87-988c-c2f568347cdb.svg" alt="" />
+            </span>
+            <span class="btn-primary__spinner" aria-hidden="true"></span>
+          </button>
+
+        </form>
+
+        <p class="trust-badge">
+          <span class="trust-badge__icon">
+            <img src="https://www.figma.com/api/mcp/asset/0e56162c-6def-42c4-b15f-75ed93dd0386.svg" alt="" />
+          </span>
+          Secure • Verified • Traceable
+        </p>
+        <p class="footnote">Authorized personnel onliy</p>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="/jsFiles/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>FieldTest — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/cssFiles/home.css" />
+</head>
+<body>
+
+  <!-- ============ DESKTOP / LARGE VIEWPORT NOTICE ============ -->
+  <div id="desktop-notice">
+    <div class="brand-mark">
+      <img class="brand-mark__outline" src="https://www.figma.com/api/mcp/asset/6f98f854-b17e-495b-8438-ecb8fe4bc20a.svg" alt="" />
+      <div class="brand-mark__badge"></div>
+      <img class="brand-mark__icon" src="https://www.figma.com/api/mcp/asset/15d36d72-a2d7-4c2e-b1f7-36316d3db9dc.png" alt="" />
+    </div>
+    <h1>FieldTest is currently available for mobile devices.</h1>
+    <p>The desktop version is coming soon.</p>
+    <p>Please open FieldTest on a mobile device for the best experience.</p>
+  </div>
+
+  <!-- ============ MOBILE APP ============ -->
+  <div id="home-app">
+    <div class="home-screen">
+
+      <!-- ---------- Header ---------- -->
+      <header class="home-header">
+        <div class="home-header__brand">
+          <div class="brand-mark">
+            <img class="brand-mark__outline" src="https://www.figma.com/api/mcp/asset/6f98f854-b17e-495b-8438-ecb8fe4bc20a.svg" alt="" />
+            <div class="brand-mark__badge"></div>
+            <img class="brand-mark__icon" src="https://www.figma.com/api/mcp/asset/15d36d72-a2d7-4c2e-b1f7-36316d3db9dc.png" alt="" />
+          </div>
+          <div class="home-header__text">
+            <p class="home-header__wordmark">Field <span>Test</span></p>
+            <p class="home-header__tagline">Digital Field Testing Companion</p>
+          </div>
+        </div>
+
+        <button type="button" class="profile-btn" id="profile-btn" aria-label="Profile">
+          <img class="profile-btn__bg" src="https://www.figma.com/api/mcp/asset/9a104b6a-2c0e-4a98-a6dd-663cc6af403c.svg" alt="" />
+          <img class="profile-btn__icon" src="https://www.figma.com/api/mcp/asset/a36785d9-b85d-44e3-ac79-33755d34aa50.svg" alt="" />
+        </button>
+      </header>
+
+      <!-- ---------- Scrollable content ---------- -->
+      <main class="home-content">
+
+        <section class="greeting" id="greeting">
+          <h1 class="greeting__title" id="greeting-title">Good Morning,</h1>
+          <p class="greeting__name" id="greeting-name">Ramesh Sir</p>
+          <p class="greeting__sub">Ready for your next field test?</p>
+        </section>
+
+        <h2 class="section-label">Quick Access</h2>
+        <div class="quick-access">
+
+          <button type="button" class="quick-access__card" data-nav="new-test">
+            <img class="quick-access__icon" src="https://www.figma.com/api/mcp/asset/89035cbe-3cb6-4f03-9501-381dca88d66b.svg" alt="" />
+            <p class="quick-access__title">New Test</p>
+            <p class="quick-access__subtitle">Start a field test</p>
+            <img class="quick-access__chevron" src="https://www.figma.com/api/mcp/asset/071aa550-13df-4eef-909e-cbce0622eaba.svg" alt="" />
+          </button>
+
+          <button type="button" class="quick-access__card" data-nav="history">
+            <img class="quick-access__icon" src="https://www.figma.com/api/mcp/asset/89035cbe-3cb6-4f03-9501-381dca88d66b.svg" alt="" />
+            <p class="quick-access__title">Test History</p>
+            <p class="quick-access__subtitle">View your records</p>
+            <img class="quick-access__chevron" src="https://www.figma.com/api/mcp/asset/071aa550-13df-4eef-909e-cbce0622eaba.svg" alt="" />
+          </button>
+
+          <button type="button" class="quick-access__card" data-nav="saved-results">
+            <img class="quick-access__icon" src="https://www.figma.com/api/mcp/asset/89035cbe-3cb6-4f03-9501-381dca88d66b.svg" alt="" />
+            <p class="quick-access__title">Saved Results</p>
+            <p class="quick-access__subtitle">Check saved calculations</p>
+            <img class="quick-access__chevron" src="https://www.figma.com/api/mcp/asset/071aa550-13df-4eef-909e-cbce0622eaba.svg" alt="" />
+          </button>
+
+          <button type="button" class="quick-access__card" data-nav="reports">
+            <img class="quick-access__icon" src="https://www.figma.com/api/mcp/asset/89035cbe-3cb6-4f03-9501-381dca88d66b.svg" alt="" />
+            <p class="quick-access__title">Reports</p>
+            <p class="quick-access__subtitle">View summary &amp; analytics</p>
+            <img class="quick-access__chevron" src="https://www.figma.com/api/mcp/asset/071aa550-13df-4eef-909e-cbce0622eaba.svg" alt="" />
+          </button>
+
+        </div>
+
+        <h2 class="section-label">Today&rsquo;s Summary</h2>
+        <div class="summary-card" id="summary-card">
+          <!-- populated by home.js from MOCK_DATA.summary -->
+        </div>
+
+        <h2 class="section-label">Recents Activity</h2>
+        <div class="activity-card" id="activity-card">
+          <!-- rows populated by home.js from MOCK_DATA.recentActivity -->
+        </div>
+
+      </main>
+
+      <!-- ---------- Bottom navigation ---------- -->
+      <footer class="home-footer">
+        <button type="button" class="nav-item is-active" data-nav="home">
+          <img class="nav-item__icon" src="https://www.figma.com/api/mcp/asset/e9c4d06d-b480-437a-8196-c76fbb57e86b.svg" alt="" />
+          <span class="nav-item__label">Home</span>
+          <span class="nav-item__underline"></span>
+        </button>
+        <button type="button" class="nav-item" data-nav="new-test">
+          <img class="nav-item__icon" src="https://www.figma.com/api/mcp/asset/e8dfc515-73b6-4ab6-9f83-9ec75ae45ac9.svg" alt="" />
+          <span class="nav-item__label">New Test</span>
+          <span class="nav-item__underline"></span>
+        </button>
+        <button type="button" class="nav-item" data-nav="history">
+          <img class="nav-item__icon" src="https://www.figma.com/api/mcp/asset/986126ff-b1ee-4046-988e-67fe8fb9f98f.svg" alt="" />
+          <span class="nav-item__label">History</span>
+          <span class="nav-item__underline"></span>
+        </button>
+        <button type="button" class="nav-item" data-nav="reports">
+          <img class="nav-item__icon" src="https://www.figma.com/api/mcp/asset/3657006a-ba5a-4bb5-93f6-ce47cb04ea71.svg" alt="" />
+          <span class="nav-item__label">Reports</span>
+          <span class="nav-item__underline"></span>
+        </button>
+      </footer>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/jsFiles/home.js"></script>
+</body>
+</html>
